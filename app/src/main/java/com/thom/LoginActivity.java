@@ -27,7 +27,7 @@ import java.io.UnsupportedEncodingException;
 public class LoginActivity extends AppCompatActivity {
 
     EditText editTextPassword;
-    Button btnLogin;
+    Button btnLogin, btnRegister;
     Account account;
 
     @Override
@@ -44,7 +44,13 @@ public class LoginActivity extends AppCompatActivity {
                 login(editTextPassword.getText().toString(), LoginActivity.this);
             }
         });
-
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent dangKy = new Intent(LoginActivity.this, AddAccount.class);
+                startActivity(dangKy);
+            }
+        });
     }
 
     private boolean login(String password, Context context) {
@@ -93,5 +99,6 @@ public class LoginActivity extends AppCompatActivity {
     private void mapper() {
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnRegister = (Button) findViewById(R.id.btnRegister);
     }
 }

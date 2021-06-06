@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Noteonline">
-        <activity android:name=".InfoActivity"></activity>
+        <activity android:name=".AddAccount" />
+        <activity android:name=".InfoActivity" />
         <activity android:name=".Loading" />
         <activity android:name=".EditActivity" />
         <activity

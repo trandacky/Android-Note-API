@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +17,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.thom.R;
 
 public class SlideshowFragment extends Fragment {
-
+    Button btnSua;
+    EditText birthDay, name;
     private SlideshowViewModel slideshowViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -23,6 +26,7 @@ public class SlideshowFragment extends Fragment {
         slideshowViewModel =
                 new ViewModelProvider(this).get(SlideshowViewModel.class);
         View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        mapper(root);
         final TextView textView = root.findViewById(R.id.text_slideshow);
         slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -31,5 +35,14 @@ public class SlideshowFragment extends Fragment {
             }
         });
         return root;
+
+        ///////////
+    }
+        //////////
+    private void mapper(View root)
+    {
+        birthDay = (EditText)root.findViewById(R.id.birthDay);
+        name = (EditText)root.findViewById(R.id.name);
+        btnSua = (Button) root.findViewById(R.id.btnChange);
     }
 }
